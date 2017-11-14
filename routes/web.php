@@ -12,6 +12,7 @@
 */
 Route::middleware('auth')->group(function() {
     Route::get('/', 'ContentsController@home')->name('home');
+    Route::get('/home', 'ContentsController@home')->name('home');
     Route::get('/upload', 'ContentsController@upload')->name('upload');
     Route::post('/upload', 'ContentsController@upload')->name('upload');
     Route::get('/clients', 'ClientController@index')->name('clients');
@@ -37,11 +38,11 @@ Route::get('/about', function () {
     //return '<h3>About</h3>';
 });
 
-Route::get('/home', function () {
-    $data = [];
-    $data['version'] = '0.1.1';
-    return view('welcome', $data);
-});
+// Route::get('/home', function () {
+//     $data = [];
+//     $data['version'] = '0.1.1';
+//     return view('welcome', $data);
+// });
 
 Route::get('/di', 'ClientController@di');
 
@@ -58,4 +59,4 @@ Route::get('/facades/decrypt', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
