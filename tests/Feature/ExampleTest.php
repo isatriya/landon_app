@@ -18,18 +18,19 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     public function testNewClientForm() {
         $response = $this->get('/clients/new');
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
-    public function testProfessorOption() {
-        $response = $this->get('/clients/new');
-        $this->assertContains('Professor', 
-            $response->getContent(),
-            'HTML should have Professor');
-    }
+    // This test case is no longer valid login feature has been implemented.
+    // public function testProfessorOption() {
+    //     $response = $this->get('/clients/new');
+    //     $this->assertContains('Professor', 
+    //         $response->getContent(),
+    //         'HTML should have Professor');
+    // }
 }
